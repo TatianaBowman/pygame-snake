@@ -67,7 +67,7 @@ def snake_ate_food(snake, food):
     food - 2-tuple representing the position in the grid of the food
     This function should return True if the head of the snake is in the same position as food.
     """
-    if food == snake[1]:
+    if food == snake[0]:
         return True
     else:
         return False
@@ -89,6 +89,9 @@ def snake_intersected_body(snake):
     The snake ran into itself if the position of the head is the same as the position
     of any of its body segments.
     """
+    for segement in range(1, len(snake)):
+        if snake[0] == snake[segement]:
+            return True
     return False
 
 def get_score(snake):
